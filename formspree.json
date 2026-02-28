@@ -1,0 +1,22 @@
+{
+  "forms": {
+    "waitlist": {
+      "name": "Airgap Gate Waitlist",
+      "fields": {
+        "email": {
+          "type": "email",
+          "required": true
+        },
+        "organization": {
+          "type": "text"
+        }
+      },
+      "actions": [
+        {
+          "type": "email",
+          "to": "$NOTIFICATION_EMAIL"
+        }
+      ]
+    }
+  }
+}

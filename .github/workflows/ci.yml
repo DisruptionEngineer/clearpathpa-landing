@@ -24,3 +24,15 @@ jobs:
 
       - name: Build
         run: npm run build
+
+  deploy-forms:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy Formspree forms
+        uses: formspree/cli-action@main
+        with:
+          deployKey: ${{ secrets.FORMSPREE_DEPLOY_KEY }}
+        env:
+          NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
